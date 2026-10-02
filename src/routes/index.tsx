@@ -108,7 +108,7 @@ function HomePage() {
 
         {/* Tilted glass card stack */}
         <div className="relative col-span-12 hidden h-[420px] lg:col-span-5 lg:block">
-          <div className="absolute inset-0 rotate-[10deg] overflow-hidden rounded-2xl border border-glass-border bg-glass/70 shadow-[0_0_60px_-10px_oklch(0.8_0.17_166/0.35)] backdrop-blur-md animate-drift">
+          <div className="absolute inset-0 rotate-[10deg] overflow-hidden rounded-2xl border border-glass-border bg-glass/70 shadow-[0_0_60px_-10px_oklch(0.62_0.21_25/0.35)] backdrop-blur-md animate-drift">
             <div className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-foreground/10 to-transparent animate-sheen" />
             <div className="absolute inset-0 grid place-items-center">
               <span className="font-display text-7xl tracking-wide text-foreground/10">
