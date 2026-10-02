@@ -29,7 +29,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
     <Link
       to="/projects/$slug"
       params={{ slug: project.slug }}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-glass-border bg-glass/60 backdrop-blur-md transition-colors animate-rise hover:border-primary/40"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-glass-border transition-colors animate-rise hover:border-primary/40"
       style={{ animationDelay: `${delay}ms` }}
     >
       {project.image ? (
@@ -44,7 +44,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
           />
         </div>
       ) : (
-        <div className="grid aspect-[16/9] w-full place-items-center bg-glass px-6 outline-1 -outline-offset-1 outline-glass-border">
+        <div className="grid aspect-[16/9] w-full place-items-center px-6 outline-1 -outline-offset-1 outline-glass-border">
           <code className="text-center font-mono text-xs text-muted-foreground sm:text-sm">
             {project.terminal}
           </code>
@@ -62,10 +62,10 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-2">
           <span
-            className={`rounded-full border px-3 py-1 font-mono text-[11px] ${
+            className={`border px-3 py-1 font-mono text-[11px] ${
               project.kind === "open source"
-                ? "border-primary/30 bg-primary/15 text-primary"
-                : "border-glass-border bg-foreground/5 text-muted-foreground"
+                ? "border-primary/30 text-primary"
+                : "border-glass-border text-muted-foreground"
             }`}
           >
             {project.kind}
@@ -73,7 +73,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-glass-border bg-foreground/5 px-3 py-1 font-mono text-[11px] text-muted-foreground"
+              className="border border-glass-border px-3 py-1 font-mono text-[11px] text-muted-foreground"
             >
               {tag}
             </span>
@@ -115,7 +115,7 @@ function ProjectsPage() {
         ))}
       </div>
 
-      <div className="mt-16 rounded-2xl border border-glass-border bg-glass/60 p-8 backdrop-blur-md">
+      <div className="mt-16 rounded-2xl border border-glass-border p-8">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
             <h2 className="font-display text-3xl tracking-wide">

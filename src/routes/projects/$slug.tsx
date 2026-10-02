@@ -73,7 +73,7 @@ function ProjectPage() {
       <ProjectMedia project={project} />
 
       <section className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-12">
-        <div className="rounded-2xl border border-glass-border bg-glass/60 p-6 backdrop-blur-md lg:col-span-8">
+        <div className="rounded-2xl border border-glass-border p-6 lg:col-span-8">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
             Overview
           </h2>
@@ -81,7 +81,7 @@ function ProjectPage() {
             {project.description}
           </p>
         </div>
-        <div className="rounded-2xl border border-glass-border bg-glass/60 p-6 backdrop-blur-md lg:col-span-4">
+        <div className="rounded-2xl border border-glass-border p-6 lg:col-span-4">
           <h2 className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
             Stack
           </h2>
@@ -89,14 +89,14 @@ function ProjectPage() {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-glass-border bg-foreground/5 px-3 py-1 font-mono text-[11px] text-muted-foreground"
+                className="border border-glass-border px-3 py-1 font-mono text-[11px] text-muted-foreground"
               >
                 {tag}
               </span>
             ))}
           </div>
           {project.image && project.terminal ? (
-            <code className="mt-6 block rounded-xl border border-glass-border bg-foreground/5 px-4 py-3 font-mono text-xs text-muted-foreground">
+            <code className="mt-6 block border border-glass-border px-4 py-3 font-mono text-xs text-muted-foreground">
               {project.terminal}
             </code>
           ) : null}
@@ -113,7 +113,7 @@ function ProjectPage() {
               key={item.slug}
               to="/projects/$slug"
               params={{ slug: item.slug }}
-              className="rounded-2xl border border-glass-border bg-glass/60 p-5 backdrop-blur-md transition-colors hover:border-primary/40"
+              className="rounded-2xl border border-glass-border p-5 transition-colors hover:border-primary/40"
             >
               <div className="font-display text-2xl leading-none">{item.name}</div>
               <p className="mt-2 text-sm text-pretty text-muted-foreground">{item.tagline}</p>
@@ -139,7 +139,7 @@ function ProjectMedia({ project }: { project: Project }) {
   }
 
   return (
-    <div className="mt-10 grid aspect-[16/9] place-items-center rounded-2xl border border-glass-border bg-glass/60 px-6 backdrop-blur-md">
+    <div className="mt-10 grid aspect-[16/9] place-items-center rounded-2xl border border-glass-border px-6">
       <code className="text-center font-mono text-sm text-muted-foreground sm:text-base">
         {project.terminal}
       </code>

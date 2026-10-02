@@ -96,7 +96,7 @@ function CvPage() {
         <DownloadCvLink className="inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/85" />
       </div>
 
-      <section className="mt-10 rounded-2xl border border-glass-border bg-glass/60 p-6 backdrop-blur-md">
+      <section className="mt-10 rounded-2xl border border-glass-border p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
           Objectives
         </h2>
@@ -110,7 +110,7 @@ function CvPage() {
         </ul>
       </section>
 
-      <section className="mt-6 rounded-2xl border border-glass-border bg-glass/60 p-6 backdrop-blur-md">
+      <section className="mt-6 rounded-2xl border border-glass-border p-6">
         <h2 className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
           Personal summary
         </h2>
@@ -123,7 +123,7 @@ function CvPage() {
         <h2 className="mb-4 font-display text-5xl tracking-wide">
           Technical skills
         </h2>
-        <div className="divide-y divide-glass-border rounded-2xl border border-glass-border bg-glass/60 backdrop-blur-md">
+        <div className="divide-y divide-glass-border rounded-2xl border border-glass-border">
           {technicalSkills.map((skill) => (
             <div key={skill.name} className="grid grid-cols-12 gap-4 p-6">
               <h3 className="col-span-12 font-semibold text-foreground md:col-span-3">
@@ -141,7 +141,7 @@ function CvPage() {
         <h2 className="mb-4 font-display text-5xl tracking-wide">
           Team &amp; management
         </h2>
-        <ul className="space-y-3 rounded-2xl border border-glass-border bg-glass/60 p-6 text-sm leading-relaxed text-muted-foreground backdrop-blur-md">
+        <ul className="space-y-3 rounded-2xl border border-glass-border p-6 text-sm leading-relaxed text-muted-foreground">
           {managementSkills.map((item) => (
             <li key={item} className="flex gap-3">
               <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
@@ -158,7 +158,7 @@ function CvPage() {
             2005 — present
           </span>
         </div>
-        <div className="divide-y divide-glass-border rounded-2xl border border-glass-border bg-glass/60 backdrop-blur-md">
+        <div className="divide-y divide-glass-border rounded-2xl border border-glass-border">
           {experience.map((job) => (
             <div key={`${job.company}-${job.period}`} className="grid grid-cols-12 gap-6 p-6">
               <div className="col-span-12 md:col-span-4">
@@ -177,7 +177,7 @@ function CvPage() {
         </div>
       </section>
 
-      <section className="mt-12 flex flex-col items-start justify-between gap-4 rounded-2xl border border-glass-border bg-glass/60 p-6 backdrop-blur-md sm:flex-row sm:items-center">
+      <section className="mt-12 flex flex-col items-start justify-between gap-4 rounded-2xl border border-glass-border p-6 sm:flex-row sm:items-center">
         <div>
           <h2 className="font-display text-3xl tracking-wide">
             Contacts &amp; references

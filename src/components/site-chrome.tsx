@@ -31,7 +31,7 @@ export function SiteHeader() {
                 to={link.to}
                 className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
                   active
-                    ? "bg-foreground/10 text-foreground"
+                    ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
