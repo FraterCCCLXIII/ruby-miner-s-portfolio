@@ -108,8 +108,8 @@
 /*
  * Header mark stones. One stone winks out and back per beat, and the
  * delays walk that beat along the diagonal so the mark never goes dark.
- * step-end keeps each stone fully black or fully gone — a fade would
- * composite the black over the red and read as gray.
+ * step-end keeps each stone fully on or fully gone — a fade would
+ * dull the red against the header.
  */
 @keyframes mark-stone {
   0%,

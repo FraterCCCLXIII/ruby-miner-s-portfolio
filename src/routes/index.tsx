@@ -163,10 +163,10 @@ function HomePage() {
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary animate-rise">
             Alain Bloch — Backend Engineer
           </p>
-          <h1 className="mt-5 font-display text-[5.5rem] leading-[0.82] tracking-tight animate-rise sm:text-[8.5rem]">
-            RUBY
+          <h1 className="mt-5 font-display text-[2.15rem] leading-[0.88] tracking-tight animate-rise sm:text-[4.25rem] md:text-[5rem] lg:text-[6.75rem] xl:text-[8.5rem]">
+            Ship the next product
             <br />
-            MINER
+            on a backend that holds.
           </h1>
           <p className="mt-6 max-w-[44ch] text-lg text-pretty text-foreground animate-rise">
             I dig deep into Ruby, Rails and Postgres — carving fast, boring, dependable services out

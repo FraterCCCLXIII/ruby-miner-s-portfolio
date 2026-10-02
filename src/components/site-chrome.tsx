@@ -7,63 +7,99 @@ const navLinks = [
 ] as const;
 
 /**
- * Black stones of the header mark, in source order.
+ * Red stones of the header mark, in source order.
  *
- * Delay is assigned by sweeping x + y, so the wink travels along the
- * pickaxe instead of flashing stones that happen to sit next to each
- * other in the SVG.
+ * Delay is assigned by sweeping x + y and spread across one 4.8s cycle
+ * (the mark-stone animation), so a single wink walks the shape instead
+ * of flashing neighbors that only happen to sit together in the SVG.
  */
 const markStones = [
-  { x: 100.91, y: 70.59, transform: "translate(90.19 -55.12) rotate(45)" },
-  { x: 85.75, y: 85.75, transform: "translate(96.47 -39.96) rotate(45)" },
-  { x: 70.59, y: 100.91, transform: "translate(102.75 -24.8) rotate(45)" },
-  { x: 55.43, y: 116.07, transform: "translate(109.03 -9.64) rotate(45)" },
-  { x: 40.27, y: 131.22, transform: "translate(115.3 5.52) rotate(45)" },
-  { x: 25.12, y: 146.38, transform: "translate(121.58 20.68) rotate(45)" },
-  { x: 131.22, y: 70.59, transform: "translate(99.07 -76.55) rotate(45)" },
-  { x: 116.07, y: 55.43, transform: "translate(83.91 -70.28) rotate(45)" },
-  { x: 146.38, y: 85.75, transform: "translate(114.23 -82.83) rotate(45)" },
-  { x: 131.22, y: 100.91, transform: "translate(120.51 -67.67) rotate(45)" },
-  { x: 146.38, y: 116.07, transform: "translate(135.66 -73.95) rotate(45)" },
-  { x: 146.38, y: 146.38, transform: "translate(157.1 -65.07) rotate(45)" },
-  { x: 100.91, y: 40.27, transform: "translate(154.5 165.98) rotate(-135)" },
-  { x: 116.07, y: 25.12, transform: "translate(191.1 150.82) rotate(-135)" },
-  { x: 131.22, y: 40.27, transform: "translate(206.26 187.42) rotate(-135)" },
-  { x: 146.38, y: 25.12, transform: "translate(242.85 172.26) rotate(-135)" },
-  { x: 146.38, y: 55.43, transform: "translate(221.41 224.01) rotate(-135)" },
-  { x: 85.75, y: 25.12, transform: "translate(139.34 129.39) rotate(-135)" },
-  { x: 70.59, y: 40.27, transform: "translate(102.75 144.54) rotate(-135)" },
-  { x: 55.43, y: 25.12, transform: "translate(87.59 107.95) rotate(-135)" },
-  { x: 25.12, y: 25.12, transform: "translate(35.83 86.51) rotate(-135)" },
+  { x: 27.19, y: 3.47, transform: "translate(18.81 -21.69) rotate(45)" },
+  { x: 3.47, y: 3.47, transform: "translate(11.86 -4.91) rotate(45)" },
+  { x: 15.33, y: 15.33, transform: "translate(23.72 -9.83) rotate(45)" },
+  { x: 3.47, y: 27.19, transform: "translate(28.63 2.03) rotate(45)" },
+  { x: 50.91, y: 3.47, transform: "translate(25.76 -38.46) rotate(45)" },
+  { x: 62.78, y: 15.33, transform: "translate(37.62 -43.37) rotate(45)" },
+  { x: 39.05, y: 15.33, transform: "translate(30.67 -26.6) rotate(45)" },
+  { x: 50.91, y: 27.19, transform: "translate(42.53 -31.51) rotate(45)" },
+  { x: 27.19, y: 27.19, transform: "translate(35.58 -14.74) rotate(45)" },
+  { x: 39.05, y: 39.05, transform: "translate(47.44 -19.65) rotate(45)" },
+  { x: 15.33, y: 39.05, transform: "translate(40.49 -2.88) rotate(45)" },
+  { x: 27.19, y: 50.91, transform: "translate(52.35 -7.79) rotate(45)" },
+  { x: 3.47, y: 50.91, transform: "translate(45.41 8.98) rotate(45)" },
+  { x: 15.33, y: 62.78, transform: "translate(57.27 4.07) rotate(45)" },
+  { x: 3.47, y: 74.64, transform: "translate(62.18 15.93) rotate(45)" },
+  { x: 74.64, y: 27.19, transform: "translate(49.48 -48.28) rotate(45)" },
+  { x: 86.5, y: 39.05, transform: "translate(61.34 -53.2) rotate(45)" },
+  { x: 62.78, y: 39.05, transform: "translate(54.39 -36.42) rotate(45)" },
+  { x: 74.64, y: 50.91, transform: "translate(66.25 -41.34) rotate(45)" },
+  { x: 50.91, y: 50.91, transform: "translate(59.3 -24.56) rotate(45)" },
+  { x: 62.78, y: 62.78, transform: "translate(71.16 -29.48) rotate(45)" },
+  { x: 39.05, y: 62.78, transform: "translate(64.21 -12.7) rotate(45)" },
+  { x: 50.91, y: 74.64, transform: "translate(76.07 -17.62) rotate(45)" },
+  { x: 27.19, y: 74.64, transform: "translate(69.13 -.84) rotate(45)" },
+  { x: 39.05, y: 86.5, transform: "translate(80.99 -5.76) rotate(45)" },
+  { x: 15.33, y: 86.5, transform: "translate(74.04 11.02) rotate(45)" },
+  { x: 27.19, y: 98.36, transform: "translate(85.9 6.1) rotate(45)" },
+  { x: 3.47, y: 98.36, transform: "translate(78.95 22.88) rotate(45)" },
+  { x: 98.36, y: 50.91, transform: "translate(73.2 -58.11) rotate(45)" },
+  { x: 86.5, y: 62.78, transform: "translate(78.11 -46.25) rotate(45)" },
+  { x: 98.36, y: 74.64, transform: "translate(89.97 -51.16) rotate(45)" },
+  { x: 74.64, y: 74.64, transform: "translate(83.02 -34.39) rotate(45)" },
+  { x: 86.5, y: 86.5, transform: "translate(94.88 -39.3) rotate(45)" },
+  { x: 62.78, y: 86.5, transform: "translate(87.93 -22.53) rotate(45)" },
+  { x: 74.64, y: 98.36, transform: "translate(99.79 -27.44) rotate(45)" },
+  { x: 50.91, y: 98.36, transform: "translate(92.85 -10.67) rotate(45)" },
+  { x: 74.64, y: 3.47, transform: "translate(32.7 -55.23) rotate(45)" },
+  { x: 98.36, y: 3.47, transform: "translate(39.65 -72) rotate(45)" },
+  { x: 86.5, y: 15.33, transform: "translate(44.56 -60.14) rotate(45)" },
+  { x: 98.36, y: 27.19, transform: "translate(56.42 -65.06) rotate(45)" },
+  { x: 98.36, y: 98.36, transform: "translate(106.74 -44.21) rotate(45)" },
 ] as const;
+
+const markStoneSize = 16.77;
+
+/**
+ * Stones meet edge to edge. A hair of overlap hides the dark header in
+ * the anti-aliased seam; without it those seams read as faint black lines.
+ */
+const markStoneOverlap = 1.14;
+
+const markBlinkPeriod = 4.8;
+
+/** Scale a stone around its own center, then apply the source rotation. */
+function markStoneTransform(stone: { x: number; y: number; transform: string }) {
+  const cx = stone.x + markStoneSize / 2;
+  const cy = stone.y + markStoneSize / 2;
+  return `${stone.transform} translate(${cx} ${cy}) scale(${markStoneOverlap}) translate(${-cx} ${-cy})`;
+}
 
 const markStoneDelay = new Map(
   markStones
     .map((stone, index) => ({ index, sweep: stone.x + stone.y }))
     .sort((a, b) => a.sweep - b.sweep)
-    .map((entry, rank) => [entry.index, rank * 0.22]),
+    .map((entry, rank) => [entry.index, (rank * markBlinkPeriod) / markStones.length]),
 );
 
-/** Square ruby mark. Each stone winks off for one beat, then returns. */
+/** Header logo: red stones only. Each one winks off for one beat, then returns. */
 function SiteMark() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 192.94 192.94"
-      className="size-10 shrink-0"
+      viewBox="0 0 118.6 118.6"
+      className="size-7 shrink-0"
       aria-hidden="true"
     >
-      <rect fill="#e81d2a" width="192.94" height="192.94" />
       {markStones.map((stone, index) => (
         <rect
           key={stone.transform}
           className="mark-stone"
-          fill="#000"
+          fill="#e81d2a"
           x={stone.x}
           y={stone.y}
-          width="21.44"
-          height="21.44"
-          transform={stone.transform}
+          width={markStoneSize}
+          height={markStoneSize}
+          transform={markStoneTransform(stone)}
           style={{ animationDelay: `-${markStoneDelay.get(index)}s` }}
         />
       ))}
@@ -77,7 +113,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-glass-border bg-background/70 backdrop-blur-xl print:hidden">
       <div className="mx-auto flex h-16 max-w-[80rem] items-center justify-between px-6 md:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="Ruby Miner, home">
+        <Link to="/" className="flex items-center gap-3">
           <SiteMark />
           <span className="font-display text-2xl leading-none tracking-wide">
             RUBY<span className="text-primary">MINER</span>
