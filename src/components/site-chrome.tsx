@@ -60,7 +60,7 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-wrap items-center gap-6 font-mono text-xs text-muted-foreground">
           <a
-            href="https://github.com/rubyminer"
+            href="https://github.com/alainbloch"
             target="_blank"
             rel="noreferrer"
             className="transition-colors hover:text-primary"

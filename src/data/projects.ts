@@ -1,6 +1,9 @@
-import ledgerEngineImg from "@/assets/project-ledger-engine.jpg";
-import orePipelineImg from "@/assets/project-ore-pipeline.jpg";
-import seamApiImg from "@/assets/project-seam-api.jpg";
+/**
+ * Portfolio catalog — Alain Bloch's own public GitHub repositories.
+ *
+ * Forks, empty stubs, and generated starters are left out. Copy is taken
+ * from each repo's description or README, and `link` is that repo's URL.
+ */
 
 export type Project = {
   slug: string;
@@ -9,94 +12,177 @@ export type Project = {
   description: string;
   tags: string[];
   year: string;
-  kind: "open source" | "client work" | "tooling";
+  kind: "open source" | "tooling";
   stat?: string;
   image?: string;
   terminal?: string;
   link: string;
 };
 
+const github = (repo: string) => `https://github.com/alainbloch/${repo}`;
+
 export const featuredProjects: Project[] = [
   {
-    slug: "ledger-engine",
-    name: "Ledger Engine",
-    tagline: "Double-entry accounting core, 4M txns/day, sub-50ms reads.",
+    slug: "uploadify-rails",
+    name: "Uploadify Rails",
+    tagline: "A Rails plugin that drops Uploadify in without the session headaches.",
     description:
-      "A double-entry accounting core that clears four million transactions a day with sub-50ms balance reads. Idempotency keys, exactly-once posting, and a reconciliation flow accountants actually enjoy.",
-    tags: ["Rails", "Postgres"],
-    year: "2024",
-    kind: "client work",
-    stat: "4M txns/day",
-    image: ledgerEngineImg,
-    link: "https://github.com/rubyminer",
+      "Uploadify is a JavaScript library for uploading multiple files with progress bars. Uploadify Rails gets it running in a Rails app: it passes the authenticity token and session id through the Flash request, and sets the response format to JSON so the app can answer when a file lands.",
+    tags: ["Rails", "JavaScript", "jQuery"],
+    year: "2010",
+    kind: "tooling",
+    stat: "16 ★",
+    terminal: "rake uploadify_rails:install",
+    link: github("uploadify_rails"),
   },
   {
-    slug: "ore-pipeline",
-    name: "Ore Pipeline",
-    tagline: "Streaming ETL that ingests 12k events/sec into the warehouse.",
+    slug: "openward",
+    name: "Openward",
+    tagline: "An open-source CMS and social networking platform.",
     description:
-      "Streaming ETL that ingests twelve thousand events per second into the analytics warehouse. Backpressure-aware Sidekiq workers, dead-letter routing, and replay from any offset.",
-    tags: ["Sidekiq", "Kafka"],
-    year: "2023",
-    kind: "client work",
-    stat: "12k events/sec",
-    image: orePipelineImg,
-    link: "https://github.com/rubyminer",
+      "An experiment in metamedia: an open-source CMS and social networking platform. The app is a full Rails project with themes, specs, and its own required-gems list.",
+    tags: ["Rails", "JavaScript"],
+    year: "2010",
+    kind: "open source",
+    stat: "1 ★",
+    terminal: "github.com/alainbloch/openward",
+    link: github("openward"),
   },
   {
-    slug: "seam-api",
-    name: "Seam API",
-    tagline: "Public REST + GraphQL layer powering 3 partner apps.",
+    slug: "vertical-response",
+    name: "Vertical Response",
+    tagline: "A Rails wrapper for the Vertical Response email API.",
     description:
-      "A public REST and GraphQL layer powering three partner applications. Versioned contracts, cursor pagination, and rate limiting that degrades gracefully instead of slamming doors.",
-    tags: ["GraphQL", "Redis"],
-    year: "2023",
-    kind: "client work",
-    stat: "3 partners",
-    image: seamApiImg,
-    link: "https://github.com/rubyminer",
+      "A module that pushes members and newsletters onto pre-created lists in Vertical Response. It talks to the SOAP API (soap4r), can recreate the WSDL client, and supports an optional client certificate.",
+    tags: ["Ruby", "Rails", "SOAP"],
+    year: "2009",
+    kind: "tooling",
+    stat: "3 ★",
+    terminal: "github.com/alainbloch/vertical-response",
+    link: github("vertical-response"),
   },
 ];
 
 export const moreProjects: Project[] = [
   {
-    slug: "quarry",
-    name: "Quarry",
-    tagline: "A typed job-runner for Sidekiq that makes retries explicit.",
+    slug: "twittest",
+    name: "Twittest",
+    tagline: "A Twitter-like app built as a 24-hour Rails exercise.",
     description:
-      "A typed job-runner for Sidekiq that makes retries, idempotency keys, and dead-letter routing explicit in the code instead of folklore in the wiki. 2.4k stars and counting.",
-    tags: ["Ruby", "Sidekiq"],
-    year: "2024",
+      "A test to develop a Twitter-like application in 24 hours. Not on par with Twitter, and a demonstration of how Rails can produce a rich application in a short time. Released by RubyMiner LLC under the MIT license.",
+    tags: ["Ruby", "Rails"],
+    year: "2009",
     kind: "open source",
-    stat: "2.4k ★",
-    terminal: "$ quarry perform --idempotency-key order:8841",
-    link: "https://github.com/rubyminer",
+    stat: "1 ★",
+    terminal: "github.com/alainbloch/twittest",
+    link: github("twittest"),
   },
   {
-    slug: "lamp",
-    name: "Lamp",
-    tagline: "Terminal dashboard that surfaces slow queries and queue lag.",
+    slug: "yellfire",
+    name: "Yellfire",
+    tagline: "Emergency message dissemination from the Podio Work 2.0 hackday.",
     description:
-      "A terminal dashboard that surfaces slow queries and queue lag, then points at the exact migration to run. Written in Go, shipped as a single binary.",
-    tags: ["Go", "TUI"],
-    year: "2025",
-    kind: "tooling",
-    terminal: "$ lamp watch --queues default,critical",
-    link: "https://github.com/rubyminer",
+      "Emergency message dissemination, created for the Work 2.0 hackday at Podio. A Rails application built over that hackday.",
+    tags: ["Ruby", "Rails"],
+    year: "2011",
+    kind: "open source",
+    stat: "1 ★",
+    terminal: "github.com/alainbloch/yellfire",
+    link: github("yellfire"),
   },
   {
-    slug: "forage",
-    name: "Forage",
-    tagline: "Offline-first foraging map with seasonal species data.",
+    slug: "fathom-audio-demo",
+    name: "Fathom Audio Demo",
+    tagline: "A demo app for a local Wave.js audio visualizer.",
     description:
-      "An offline-first foraging map and community app — seasonal species data, cached map tiles, and gentle onboarding. Rails API with an Expo front end.",
-    tags: ["Rails", "Expo"],
+      "A JavaScript demo that runs a wave visualizer. It can point its wave-visualizer dependency at a local clone of Wave.js so changes to the library can be tried in the app.",
+    tags: ["JavaScript"],
+    year: "2021",
+    kind: "open source",
+    terminal: "npm run dev",
+    link: github("fathom-audio-demo"),
+  },
+  {
+    slug: "unreal-browser",
+    name: "Unreal Browser",
+    tagline: "A browser implementation in Unreal.",
+    description:
+      "An Unreal project (Browser2.uproject) for a browser implementation inside the engine.",
+    tags: ["Unreal"],
     year: "2022",
     kind: "open source",
-    stat: "8k installs",
-    terminal: "$ forage find --season autumn --radius 10km",
-    link: "https://github.com/rubyminer",
+    terminal: "Browser2.uproject",
+    link: github("unrealbrowser"),
+  },
+  {
+    slug: "refactor-pets",
+    name: "Refactor Pets",
+    tagline: "An abandoned Rails app used as an interview exercise.",
+    description:
+      "An interview prompt: the previous developer left, and the app lets users list their cats. The README scores candidates on ownership, data modeling, migrations, routing, object-oriented design, and whether they run the tests.",
+    tags: ["Ruby", "Rails"],
+    year: "2017",
+    kind: "open source",
+    stat: "1 ★",
+    terminal: "github.com/alainbloch/refactor_pets",
+    link: github("refactor_pets"),
+  },
+  {
+    slug: "html-sanitizer",
+    name: "HTML Sanitizer",
+    tagline: "Sanitize chosen model attributes before save.",
+    description:
+      "A Rails plugin that wraps the sanitize gem. Declaring html_sanitizer on a model runs sanitization in a before_save callback, with an optional Sanitize config.",
+    tags: ["Ruby", "Rails"],
+    year: "2009",
+    kind: "tooling",
+    stat: "2 ★",
+    terminal: "html_sanitizer :sanitize => [:name, :description]",
+    link: github("html_sanitizer"),
+  },
+  {
+    slug: "simple-search",
+    name: "Simple Search",
+    tagline: "Search a model's fields until a real search engine is in place.",
+    description:
+      "A Rails plugin that queries chosen columns with find_by_sql and sanitizes the term. Meant as a stopgap, not a search engine. Calling User.simple_search_query(\"foo\") returns matching records, with an optional order.",
+    tags: ["Ruby", "Rails"],
+    year: "2009",
+    kind: "tooling",
+    stat: "1 ★",
+    terminal: 'User.simple_search_query("foo")',
+    link: github("simple_search"),
+  },
+  {
+    slug: "acts-as-flaggable",
+    name: "Acts As Flaggable",
+    tagline: "A Rails plugin for flagging records on different models.",
+    description:
+      "A simple way to add flags to different models. A Rails plugin released by Alain Bloch under the MIT license.",
+    tags: ["Ruby", "Rails"],
+    year: "2010",
+    kind: "tooling",
+    stat: "2 ★",
+    terminal: "github.com/alainbloch/Acts-As-Flaggable",
+    link: github("Acts-As-Flaggable"),
+  },
+  {
+    slug: "noredink-quiz",
+    name: "NoRedInk Quiz",
+    tagline: "A Ruby quiz generator that skips questions a student has already seen.",
+    description:
+      "A small Ruby quiz. It loads questions and prior usage from CSV, drops questions the student has already been assigned, draws a quiz of the requested length, and returns the question ids sorted by difficulty.",
+    tags: ["Ruby"],
+    year: "2015",
+    kind: "open source",
+    terminal: "Quiz.new(length).generate",
+    link: github("noredink"),
   },
 ];
 
 export const allProjects: Project[] = [...featuredProjects, ...moreProjects];
+
+/** Look up a portfolio project by its URL slug. Unknown slugs return undefined. */
+export function findProject(slug: string): Project | undefined {
+  return allProjects.find((project) => project.slug === slug);
+}

@@ -90,24 +90,6 @@
   }
 }
 
-@keyframes drift {
-  from {
-    transform: translateY(-6px);
-  }
-  to {
-    transform: translateY(8px);
-  }
-}
-
-@keyframes sheen {
-  from {
-    transform: translateX(-140%);
-  }
-  to {
-    transform: translateX(140%);
-  }
-}
-
 @keyframes glow {
   0%,
   100% {
@@ -120,14 +102,6 @@
 
 @utility animate-rise {
   animation: rise 0.6s cubic-bezier(0.32, 0.72, 0, 1) both;
-}
-
-@utility animate-drift {
-  animation: drift 7s ease-in-out infinite alternate;
-}
-
-@utility animate-sheen {
-  animation: sheen 6s ease-in-out infinite;
 }
 
 @utility hero-glow {
