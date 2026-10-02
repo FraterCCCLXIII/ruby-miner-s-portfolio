@@ -50,8 +50,8 @@
   --card-foreground: oklch(0.95 0.008 262);
   --popover: oklch(0.2 0.035 262);
   --popover-foreground: oklch(0.95 0.008 262);
-  --primary: oklch(0.8 0.17 166);
-  --primary-foreground: oklch(0.14 0.03 170);
+  --primary: oklch(0.62 0.21 25);
+  --primary-foreground: oklch(0.97 0.01 25);
   --secondary: oklch(0.27 0.045 262);
   --secondary-foreground: oklch(0.95 0.008 262);
   --muted: oklch(0.27 0.045 262);
@@ -62,7 +62,7 @@
   --destructive-foreground: oklch(0.95 0.008 262);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.8 0.17 166);
+  --ring: oklch(0.62 0.21 25);
   --glass: oklch(0.27 0.045 262);
   --glass-border: oklch(1 0 0 / 10%);
 }
@@ -132,6 +132,6 @@
 
 @utility hero-glow {
   background:
-    radial-gradient(60% 50% at 82% -5%, oklch(0.8 0.17 166 / 0.16), transparent 60%),
+    radial-gradient(60% 50% at 82% -5%, oklch(0.62 0.21 25 / 0.18), transparent 60%),
     radial-gradient(50% 55% at -8% 105%, oklch(0.6 0.15 250 / 0.13), transparent 60%);
 }
