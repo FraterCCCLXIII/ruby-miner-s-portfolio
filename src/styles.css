@@ -105,6 +105,37 @@
   animation: rise 0.6s cubic-bezier(0.32, 0.72, 0, 1) both;
 }
 
+/*
+ * Header mark stones. One stone winks out and back per beat, and the
+ * delays walk that beat along the diagonal so the mark never goes dark.
+ * step-end keeps each stone fully black or fully gone — a fade would
+ * composite the black over the red and read as gray.
+ */
+@keyframes mark-stone {
+  0%,
+  84% {
+    opacity: 1;
+  }
+  85%,
+  94% {
+    opacity: 0;
+  }
+  95%,
+  100% {
+    opacity: 1;
+  }
+}
+
+.mark-stone {
+  animation: mark-stone 4.8s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark-stone {
+    animation: none;
+  }
+}
+
 @utility hero-glow {
   background:
     radial-gradient(60% 50% at 82% -5%, oklch(0.62 0.21 25 / 0.18), transparent 60%),
