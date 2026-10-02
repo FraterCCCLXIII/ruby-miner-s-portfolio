@@ -10,12 +10,13 @@
  */
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -43,27 +44,27 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0px;
   --background: oklch(0.14 0.02 255);
   --foreground: oklch(0.95 0.008 262);
-  --card: oklch(0.27 0.045 262);
+  --card: var(--background);
   --card-foreground: oklch(0.95 0.008 262);
-  --popover: oklch(0.2 0.035 262);
+  --popover: var(--background);
   --popover-foreground: oklch(0.95 0.008 262);
   --primary: oklch(0.62 0.21 25);
   --primary-foreground: oklch(0.97 0.01 25);
-  --secondary: oklch(0.27 0.045 262);
+  --secondary: var(--background);
   --secondary-foreground: oklch(0.95 0.008 262);
-  --muted: oklch(0.27 0.045 262);
+  --muted: var(--background);
   --muted-foreground: oklch(0.66 0.028 257);
-  --accent: oklch(0.27 0.045 262);
+  --accent: var(--background);
   --accent-foreground: oklch(0.95 0.008 262);
   --destructive: oklch(0.7 0.19 22);
   --destructive-foreground: oklch(0.95 0.008 262);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.62 0.21 25);
-  --glass: oklch(0.27 0.045 262);
+  --glass: var(--background);
   --glass-border: oklch(1 0 0 / 10%);
 }
 
@@ -90,24 +91,6 @@
   }
 }
 
-@keyframes drift {
-  from {
-    transform: translateY(-6px);
-  }
-  to {
-    transform: translateY(8px);
-  }
-}
-
-@keyframes sheen {
-  from {
-    transform: translateX(-140%);
-  }
-  to {
-    transform: translateX(140%);
-  }
-}
-
 @keyframes glow {
   0%,
   100% {
@@ -120,14 +103,6 @@
 
 @utility animate-rise {
   animation: rise 0.6s cubic-bezier(0.32, 0.72, 0, 1) both;
-}
-
-@utility animate-drift {
-  animation: drift 7s ease-in-out infinite alternate;
-}
-
-@utility animate-sheen {
-  animation: sheen 6s ease-in-out infinite;
 }
 
 @utility hero-glow {

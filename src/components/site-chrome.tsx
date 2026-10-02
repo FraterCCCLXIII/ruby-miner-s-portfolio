@@ -31,7 +31,7 @@ export function SiteHeader() {
                 to={link.to}
                 className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
                   active
-                    ? "bg-foreground/10 text-foreground"
+                    ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -60,7 +60,7 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-wrap items-center gap-6 font-mono text-xs text-muted-foreground">
           <a
-            href="https://github.com/rubyminer"
+            href="https://github.com/alainbloch"
             target="_blank"
             rel="noreferrer"
             className="transition-colors hover:text-primary"
